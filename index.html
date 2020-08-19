@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>macOS Big Sur TODO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="bg" id="bg"></div>
+    <div class="container" id="container" tabindex="1" onclick="focused()">
+      <div class="window">
+        <div class="header">
+          <div class="todo">Todo</div>
+          <div class="plus" id="plus">
+            <img src="https://raw.githubusercontent.com/cyanzhong/sf-symbols-online/master/glyphs/plus.png" />
+          </div>
+        </div>
+        <div class="ul-scroll">
+          <div id="Tasks" class="tabcontent">
+            <p>add a task using the plus button above</p>
+            <ul id="taskItems">
+            </ul>
+          </div>
+          <div id="Today" class="tabcontent">
+            <p>today tab is selected</p>
+          </div>
+          <div id="Upcoming" class="tabcontent">
+            <p>upcoming tab is selected</p>
+          </div>
+          <div id="Activity" class="tabcontent">
+            <h4>Activity</h4>
+            <p>activity tab is selected</p>
+          </div>
+          <div id="Trash" class="tabcontent">
+            <p>trash tab is selected</p>
+          </div>
+          <div id="NewList" class="tabcontent"">
+            <p>new list tab is selected</p>
+            <input
+            class=" taskInput" id="taskInput" type="text" placeholder="add a task..." />
+            <div class="btnContainer"><button id="addBtn" class="addBtn" onclick="appendList()">Add</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="sidepane" id="sidepane" onclick="focused()">
+        <div class="tabs-container">
+          <div class="dots-container">
+            <div class="dots one"></div>
+            <div class="dots two"></div>
+            <div class="dots three"></div>
+          </div>
+          <div class="tabs" onclick="openTab(event, 'Tasks')">
+            <img
+            src="https://raw.githubusercontent.com/cyanzhong/sf-symbols-online/master/glyphs/largecircle.fill.circle.png" />Tasks
+          </div>
+          <div class="tabs" onclick="openTab(event, 'Today')">
+            <img src="https://raw.githubusercontent.com/cyanzhong/sf-symbols-online/master/glyphs/star.fill.png" />Today
+          </div>
+          <div class="tabs" onclick="openTab(event, 'Upcoming')">
+            <img src="https://raw.githubusercontent.com/cyanzhong/sf-symbols-online/master/glyphs/calendar.png" />Upcoming
+          </div>
+          <div class="gap"></div>
+          <div class="tabs" onclick="openTab(event, 'Activity')">
+            <img src="https://raw.githubusercontent.com/cyanzhong/sf-symbols-online/master/glyphs/clock.fill.png" />Activity
+          </div>
+          <div class="tabs" onclick="openTab(event, 'Trash')">
+            <img src="https://raw.githubusercontent.com/cyanzhong/sf-symbols-online/master/glyphs/trash.fill.png" />Trash
+          </div>
+          <div class="gap"></div>
+          <div class="tabs" id="newList" onclick="openTab(event, 'NewList')">
+            <img src="https://raw.githubusercontent.com/cyanzhong/sf-symbols-online/master/glyphs/plus.png" />New List
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="app.js"></script>
+</html>

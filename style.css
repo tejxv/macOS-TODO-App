@@ -1,0 +1,324 @@
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+body {
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  overflow: hidden;
+}
+
+.bg {
+  z-index: -1;
+  height: 0vh;
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*background: url(https://unsplash.it/1920/1080);*/
+  background: url("assets/bg/Big-Sur-Night.jpg");
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-transition: all 1000ms cubic-bezier(1, 0.03, 0.585, 0.87);
+  -moz-transition: all 1000ms cubic-bezier(1, 0.03, 0.585, 0.87);
+  -o-transition: all 1000ms cubic-bezier(1, 0.03, 0.585, 0.87);
+  transition: all 1000ms cubic-bezier(1, 0.03, 0.585, 0.87);
+}
+
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  border-radius: 10px;
+  transition: all 400ms ease;
+}
+
+.focusedSidepane {
+  background-color: #00000054;
+}
+
+.focusedContainer {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.056), 0 6.7px 5.3px rgba(0, 0, 0, 0.081), 0 12.5px 10px rgba(0, 0, 0, 0.1), 0 22.3px 17.9px rgba(0, 0, 0, 0.119), 0 41.8px 33.4px rgba(0, 0, 0, 0.144), 0 100px 80px rgba(0, 0, 0, 0.2);
+}
+
+.window {
+  height: 500px;
+  width: 500px;
+  border-radius: 0 10px 10px 0;
+  border-right: 1px solid #574e4f;
+  border-left: 1px solid #000000;
+  border-top: 1px solid #574e4f;
+  border-bottom: 1px solid #574e4f;
+  backdrop-filter: blur(20px);
+  background: #262125;
+  overflow: hidden;
+}
+
+.ul-scroll {
+  overflow: auto;
+  position: absolute;
+  width: 498px;
+  height: 440px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  height: 60px;
+  width: 498px;
+  background-color: #31252f;
+  border-radius: 0 10px 0 0;
+  margin: 0px;
+}
+
+.todo {
+  width: 100%;
+  margin-left: 1em;
+  color: white;
+  font-weight: 600;
+}
+
+.plus {
+  /*align-self: center;*/
+}
+
+.header img {
+  filter: invert(50%);
+  height: 20px;
+  margin: 1em;
+  align-self: flex-end;
+}
+
+.plus:hover img {
+  filter: invert(100%);
+}
+
+.sidepane {
+  height: 500px;
+  width: 170px;
+  border-radius: 10px 0 0 10px;
+  font-size: 15px;
+  color: white;
+  backdrop-filter: blur(20px);
+  border-left: 1px solid #574e4f;
+  border-top: 1px solid #574e4f;
+  border-bottom: 1px solid #574e4f;
+  transition: all 400ms ease;
+  user-select: none;
+}
+
+.tabs-container {
+  margin-top: 0px;
+}
+
+.tabs {
+  height: 30px;
+  margin: 0 8px;
+  font-weight: 400;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  line-height: 26px;
+  vertical-align: middle;
+  padding: 2px 0 2px 10px;
+}
+
+.tabs:hover {
+  background: #00000069;
+  cursor: pointer;
+}
+
+.tabs:active {
+  background: #00000069;
+}
+
+.active {
+  background: #00000099;
+}
+
+.active:hover {
+  background: #00000099;
+}
+
+.tabs img {
+  margin: 0px 12px -2px 0px;
+  height: 15px;
+  transform: scale(1.1);
+  filter: invert(100%);
+}
+
+.gap {
+  height: 1.1px;
+  margin: 1.2em;
+  background-color: #82919c80;
+}
+
+.dots-container {
+  height: 60px;
+  display: flex;
+  padding-top: 0.7em;
+  padding-left: 0.7em;
+}
+
+.dots {
+  background-color: black;
+  border-radius: 50%;
+  margin: 10px 0 0 10px;
+  width: 13px;
+  height: 13px;
+}
+
+.one {
+  background-color: #f1695b;
+}
+
+.two {
+  background-color: #f7c250;
+}
+
+.three {
+  background-color: #66c253;
+}
+
+::selection {
+  background: none;
+}
+
+/* ---- */
+
+.tabcontent {
+  display: none;
+  margin: 0em;
+  color: white;
+}
+
+.tabcontent p {
+  color: white;
+  margin: 1em;
+  transition: all 400ms ease;
+}
+
+.btnContainer {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.addBtn {
+  width: 120px;
+  border-radius: 5px;
+  padding: 0.5em 1.5em;
+  margin: 1em 1.3em 0 0;
+  background: #673AB7;
+  color: white;
+  cursor: cell;
+  transition: all 100ms ease;
+}
+
+.addBtn:active {
+  background: #5f5f5f;
+}
+
+/* ------ handling the ul --------*/
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+ul li {
+  padding: 0.2em 0px 0.2em 0em;
+  margin-bottom: 0.2em;
+  list-style: none;
+}
+
+ul li label:hover {
+  color: #aaaaaa;
+}
+
+ul li label:hover::before {
+  background-color: red;
+}
+
+ul li:nth-child(odd) {
+  background-color: #201b1f;
+}
+
+.tabcontent input {
+  width: 4em;
+  transform: scale(1.5);
+  transition: all 100ms ease;
+}
+
+/* .tabcontent input:active {
+  transform: scale(1) rotate(0deg);
+} */
+
+.tabcontent input[type="checkbox"]:checked+label {
+  text-decoration: line-through;
+  color: #aaaaaa;
+}
+
+input[type="text"] {
+  background: #3b2837;
+  width: 465px;
+  transform: none;
+  margin: 0 1em 0 1em;
+  padding: 1em;
+  font-size: 1em;
+  color: white;
+  border-radius: 5px;
+  caret-color: white;
+  border: 2px solid transparent;
+}
+
+input[type="text"]:focus {
+  background: #3b2837;
+  border: 2px solid #574e4f;
+}
+
+input[type="text"]:focus::placeholder {
+  color: transparent;
+}
+
+/* ----- scroll bar ---- */
+
+::-webkit-scrollbar {
+  background-color: #262125;
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #262125;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #574e4f;
+  border-radius: 16px;
+  border: 5px solid #262125;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #757474;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
